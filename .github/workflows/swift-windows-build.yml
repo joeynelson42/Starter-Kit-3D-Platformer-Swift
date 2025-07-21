@@ -14,13 +14,16 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Swift
       uses: compnerd/gha-setup-swift@main
       with:
-        branch: swift-5.9.1-release
-        tag: 5.9.1-RELEASE
+        branch: swift-6.1-release
+        tag: 6.1-RELEASE
+
+    - name: Configure Git for NTFS (if needed)
+      run: git config --global core.protectNTFS false
 
     - name: Build dynamic library
       run: |
